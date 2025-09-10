@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing Power</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .title-text {
+            color: #FFD700;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .subtitle-text {
+            color: #FFFFFF;
+            font-family: 'Segoe UI', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-text {
+            color: #8A2BE2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .highlight-text {
+            color: #00FFFF;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .quantum-circuit {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #8A2BE2;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        .provider-logo {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .provider-logo:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .metric-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #00FFFF;
+            border-radius: 8px;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container grid grid-cols-2 gap-6 p-6">
+        <!-- Left Side: Quantum Circuit and Providers -->
+        <div class="flex flex-col justify-between">
+            <h1 class="title-text text-4xl mb-4">Quantum Computing Power</h1>
+            
+            <!-- Quantum Circuit Diagram -->
+            <div class="quantum-circuit p-4 mb-4">
+                <h3 class="title-text text-xl mb-2">Quantum Fourier Transform Circuit</h3>
+                <div style="height: 200px;">
+                    <canvas id="quantumCircuit"></canvas>
+                </div>
+                <p class="subtitle-text text-sm mt-2">
+                    <span class="highlight-text">QFT</span> for frequency analysis with 
+                    <span class="accent-text">exponential speedup</span>
+                </p>
+            </div>
+            
+            <!-- Quantum Providers -->
+            <div>
+                <h3 class="title-text text-xl mb-3">Quantum Providers</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="provider-logo flex flex-col items-center">
+                        <div class="text-center">
+                            <i class="fas fa-atom text-4xl text-blue-400 mb-2"></i>
+                            <p class="subtitle-text font-bold">IBM Quantum</p>
+                            <p class="subtitle-text text-sm">Real quantum hardware</p>
+                        </div>
+                    </div>
+                    <div class="provider-logo flex flex-col items-center">
+                        <div class="text-center">
+                            <i class="fas fa-cloud text-4xl text-orange-400 mb-2"></i>
+                            <p class="subtitle-text font-bold">AWS Braket</p>
+                            <p class="subtitle-text text-sm">Multi-provider access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Performance Metrics -->
+        <div class="flex flex-col justify-between">
+            <!-- Performance Advantage -->
+            <div>
+                <h2 class="title-text text-2xl mb-3">
+                    <i class="fas fa-tachometer-alt"></i> Quantum Advantage
+                </h2>
+                <div style="height: 200px;">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <p class="subtitle-text text-center mt-2">
+                    <span class="highlight-text font-bold">2.3x</span> performance improvement over classical systems
+                </p>
+            </div>
+            
+            <!-- Key Metrics -->
+            <div>
+                <h3 class="title-text text-2xl mb-3">
+                    <i class="fas fa-chart-line"></i> Quantum Metrics
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="metric-box">
+                        <p class="highlight-text font-bold">Entanglement</p>
+                        <p class="subtitle-text text-2xl">0.847</p>
+                        <p class="subtitle-text text-xs">Quantum correlation strength</p>
+                    </div>
+                    <div class="metric-box">
+                        <p class="highlight-text font-bold">Coherence</p>
+                        <p class="subtitle-text text-2xl">92.3%</p>
+                        <p class="subtitle-text text-xs">Quantum state stability</p>
+                    </div>
+                    <div class="metric-box">
+                        <p class="highlight-text font-bold">Qubits</p>
+                        <p class="subtitle-text text-2xl">27</p>
+                        <p class="subtitle-text text-xs">Quantum processing units</p>
+                    </div>
+                    <div class="metric-box">
+                        <p class="highlight-text font-bold">Algorithms</p>
+                        <p class="subtitle-text text-2xl">QFT + VQE</p>
+                        <p class="subtitle-text text-xs">Quantum processing methods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quantum Circuit Visualization
+        const circuitCtx = document.getElementById('quantumCircuit').getContext('2d');
+        
+        // Create quantum circuit visualization
+        new Chart(circuitCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Q0', 'Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Hadamard Gates',
+                    data: [1, 1, 1, 1, 1],
+                    backgroundColor: '#8A2BE2',
+                    barThickness: 15
+                }, {
+                    label: 'Phase Gates',
+                    data: [0, 1, 2, 3, 4],
+                    backgroundColor: '#00FFFF',
+                    barThickness: 15
+                }, {
+                    label: 'CNOT Gates',
+                    data: [2, 2, 1, 1, 0],
+                    backgroundColor: '#FFD700',
+                    barThickness: 15
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // Performance Comparison Chart
+        const perfCtx = document.getElementById('performanceChart').getContext('2d');
+        
+        new Chart(perfCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Frequency Analysis', 'Pattern Recognition', 'Parameter Optimization', 'Overall'],
+                datasets: [{
+                    label: 'Classical System',
+                    data: [1.0, 1.0, 1.0, 1.0],
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderColor: 'rgba(255, 255, 255, 0.8)',
+                    borderWidth: 1
+                }, {
+                    label: 'Quantum System',
+                    data: [3.1, 1.8, 2.0, 2.3],
+                    backgroundColor: 'rgba(0, 255, 255, 0.6)',
+                    borderColor: 'rgba(0, 255, 255, 0.8)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance Multiplier',
+                            color: '#FFFFFF'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
