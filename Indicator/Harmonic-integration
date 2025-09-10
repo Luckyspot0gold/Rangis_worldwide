@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundsofRangi: Market Harmonic & Haptic System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cosmic-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+        }
+        
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .flame-glow {
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1)); }
+        }
+        
+        .title-text {
+            color: #FFD700;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .subtitle-text {
+            color: #FFFFFF;
+            font-family: 'Segoe UI', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-text {
+            color: #8A2BE2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .highlight-text {
+            color: #00FFFF;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex items-center justify-center">
+        <div class="cosmic-background"></div>
+        <div class="circuit-pattern"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-8">
+            <!-- Reality Protocol Flame Logo -->
+            <div class="mb-8">
+                <img src="https://private-us-east-1.manuscdn.com/sessionFile/2McsjRRVp7LNYR4G6AsEqr/sandbox/slides_resource_i6vr3d6gz3nmystvmm7s5-cb3c29fb-e2b-prod-aws_1757472078667_na1fn_L2hvbWUvdWJ1bnR1L1hJT04tSEFDS0FUSE9OLVBBQ0tBR0UvYXNzZXRzLzEwMDAwMzI5NzA.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMk1jc2pSUlZwN0xOWVI0RzZBc0Vxci9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pNnZyM2Q2Z3ozbm15c3R2bW03czUtY2IzYzI5ZmItZTJiLXByb2QtYXdzXzE3NTc0NzIwNzg2NjdfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwxaEpUMDR0U0VGRFMwRlVTRTlPTFZCQlEwdEJSMFV2WVhOelpYUnpMekV3TURBd016STVOekEucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=sMX~WrcrTEzmIFAvHseOjnywaBLMZm5BqDO8AAliIZLE6DUCz9UpWODrvjRVQPrjLBM7NwvfPfBXKZyMqWpUMngJPAHOtQ9O9~uzrYvnhH3FirG-BYmq5qyAmDNI5UgNugdwAwa9E4u-gCGPiki-70UHzDiMrhvekyYyC-sj-~-GqbCb04U~plckl9LyjiHW69uxcnad8tGMU1~~~oUN286gpWx9B5YvGtRAwGCSKnoUrUjDumoW7Q1QVEFXqR40WIKNN0me7mMIhxglx6xrbucEcnFgmt1XmSpAEGiV0WIOvrcz6WmkwjPUwdwzUPLX0Hh39ZgR9kBz18eD5HvSIw__" 
+                     alt="Reality Protocol Logo" 
+                     class="flame-glow mx-auto"
+                     width="200" 
+                     height="200">
+            </div>
+            
+            <!-- Main Title -->
+            <h1 class="title-text text-7xl mb-6 leading-tight">
+                SoundsofRangi
+            </h1>
+            
+            <h2 class="title-text text-5xl mb-8 leading-tight">
+                Market Mayhem Orchestration
+            </h2>
+            
+            <!-- Subtitle -->
+            <p class="subtitle-text text-3xl mb-8 leading-relaxed">
+                World's First Quantum-Enhanced<br>
+                Harmonic Trading Platform
+            </p>
+            
+            <!-- Key Features -->
+            <div class="subtitle-text text-2xl mb-8 space-y-2">
+                <p>🎵 <span class="highlight-text">432Hz Base Frequency</span> • <span class="accent-text">111.11Hz Lambda</span></p>
+                <p>🌊 <span class="highlight-text">Cymatics Visualization</span> • <span class="accent-text">Haptic Feedback</span></p>
+                <p>🌌 <span class="highlight-text">Quantum Computing</span> • <span class="accent-text">XION Integration</span></p>
+            </div>
+            
+            <!-- Company Info -->
+            <div class="subtitle-text text-xl space-y-2">
+                <p><strong class="title-text">Reality Protocol LLC</strong> | Justin William McCrea</p>
+                <p class="accent-text">Patent Pending: US2025/STYRD | Denver, Colorado</p>
+                <p class="highlight-text">Xion Hackathon 2025 | DeFi Innovation Category</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
