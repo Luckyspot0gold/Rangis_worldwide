@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cymatics: Sound Made Visible</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            max-height: 720px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden;
+        }
+        
+        .title-text {
+            color: #FFD700;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .subtitle-text {
+            color: #FFFFFF;
+            font-family: 'Segoe UI', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-text {
+            color: #8A2BE2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .highlight-text {
+            color: #00FFFF;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .cymatics-demo {
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .pattern-button {
+            background: linear-gradient(135deg, #8A2BE2, #4B0082);
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            color: #FFFFFF;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex p-6">
+        <!-- Left Side: Mobile Demo -->
+        <div class="w-1/2 flex flex-col justify-center items-center">
+            <h1 class="title-text text-4xl mb-3 text-center">Cymatics: Sound Made Visible</h1>
+            
+            <div class="cymatics-demo bg-black p-2 rounded-lg">
+                <img src="https://private-us-east-1.manuscdn.com/sessionFile/2McsjRRVp7LNYR4G6AsEqr/sandbox/slides_resource_i6vr3d6gz3nmystvmm7s5-cb3c29fb-e2b-prod-aws_1757472109813_na1fn_L2hvbWUvdWJ1bnR1L1hJT04tSEFDS0FUSE9OLVBBQ0tBR0UvYXNzZXRzLzEwMDAwMzI5Nzc.jpg?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMk1jc2pSUlZwN0xOWVI0RzZBc0Vxci9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pNnZyM2Q2Z3ozbm15c3R2bW03czUtY2IzYzI5ZmItZTJiLXByb2QtYXdzXzE3NTc0NzIxMDk4MTNfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwxaEpUMDR0U0VGRFMwRlVTRTlPTFZCQlEwdEJSMFV2WVhOelpYUnpMekV3TURBd016STVOemMuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wy7yCG48NZ7lJIXf4PaRXF34Wmq7BW84v~NfeILz5TrCa0QYd-Uc50T6QIwmEGprPgDmCktLLDI6oYrbOdQg6UJExrOM6JRVkWhIMIPb7MQ4imRlR7QoHhdXEAgh6DoFPXs-unrzS789sBgOCLkMEVcD1UQLGb~GKNaZPpaQz3WWNhJ54-WgILNTCBVdwx4BfZFjJEYR-prA6QAes13mwiDqAeOUTK1YuEQ6u2Ey~bH2IISH--bN805qjN305snttI1lmYg4FRskhEJzuOHN4KZnnQvpR-uzhX2DGecF9OBnrZsKSFSzNZOmH2Ow7UoM6c-VQQ2G063Zh8BLO0Nuxw__" 
+                     alt="SoundsofRangi Cymatics System" 
+                     class="rounded-lg"
+                     width="280" 
+                     height="420">
+            </div>
+        </div>
+        
+        <!-- Right Side: Technical Details -->
+        <div class="w-1/2 flex flex-col justify-center space-y-4 pl-6">
+            <!-- Pattern Types -->
+            <div>
+                <h2 class="title-text text-2xl mb-2">
+                    <i class="fas fa-palette"></i> Four Pattern Types
+                </h2>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="pattern-button text-center">
+                        <i class="fas fa-water"></i> Standing Waves
+                    </div>
+                    <div class="pattern-button text-center">
+                        <i class="fas fa-crosshairs"></i> Interference
+                    </div>
+                    <div class="pattern-button text-center">
+                        <i class="fas fa-circle-notch"></i> Resonance
+                    </div>
+                    <div class="pattern-button text-center">
+                        <i class="fas fa-atom"></i> Quantum Field
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Features -->
+            <div>
+                <h3 class="title-text text-2xl mb-2">
+                    <i class="fas fa-cogs"></i> Technical Features
+                </h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-black bg-opacity-50 p-2 rounded border border-purple-600">
+                        <span class="highlight-text font-bold">Frequency:</span>
+                        <span class="subtitle-text">200Hz-2000Hz</span>
+                    </div>
+                    <div class="bg-black bg-opacity-50 p-2 rounded border border-purple-600">
+                        <span class="highlight-text font-bold">Rendering:</span>
+                        <span class="subtitle-text">60fps Canvas</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Innovation -->
+            <div class="bg-gradient-to-r from-purple-900 to-blue-900 p-3 rounded-lg border border-yellow-500">
+                <h3 class="title-text text-xl mb-1">
+                    <i class="fas fa-lightbulb"></i> World's First Innovation
+                </h3>
+                <p class="subtitle-text">
+                    Real-time crypto market data converted to 
+                    <span class="highlight-text">visual sound patterns</span>
+                </p>
+            </div>
+            
+            <!-- Mathematical Foundation -->
+            <div>
+                <h3 class="title-text text-2xl mb-2">
+                    <i class="fas fa-calculator"></i> Algorithm
+                </h3>
+                <div class="bg-black bg-opacity-50 p-2 rounded-lg border border-gray-600">
+                    <code class="subtitle-text">
+                        <span class="highlight-text">Z</span> = sin(<span class="accent-text">freq</span> × X) × sin(<span class="accent-text">freq</span> × Y)
+                    </code>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
