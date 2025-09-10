@@ -1,0 +1,3 @@
+Correlation_Frequency = 432Hz × (1 + (Asset1_Change + Asset2_Change) / 200)
+Divergence_Factor = |Asset1_Change - Asset2_Change| / 100
+Harmonic_Complexity = Base_Harmonics × (1 + Divergence_Factor)
