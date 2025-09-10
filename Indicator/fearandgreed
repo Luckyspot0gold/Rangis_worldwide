@@ -1,0 +1,2 @@
+Fear_Frequency = 432Hz × (1 - Fear_Index / 100)
+Greed_Frequency = 432Hz × (1 + Greed_Index / 100)
