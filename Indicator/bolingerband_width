@@ -1,0 +1,2 @@
+Band_Width_Factor = (Upper_Band - Lower_Band) / Current_Price
+Harmonic_Spread = Base_Harmonics × (1 + Band_Width_Factor)
