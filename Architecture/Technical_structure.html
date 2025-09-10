@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .title-text {
+            color: #FFD700;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .subtitle-text {
+            color: #FFFFFF;
+            font-family: 'Segoe UI', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-text {
+            color: #8A2BE2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .highlight-text {
+            color: #00FFFF;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .architecture-container {
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .component {
+            fill: rgba(0, 0, 0, 0.7);
+            stroke: #FFD700;
+            stroke-width: 2;
+        }
+        
+        .api-component {
+            fill: rgba(138, 43, 226, 0.3);
+            stroke: #8A2BE2;
+            stroke-width: 2;
+        }
+        
+        .quantum-component {
+            fill: rgba(0, 255, 255, 0.3);
+            stroke: #00FFFF;
+            stroke-width: 2;
+        }
+        
+        .audio-component {
+            fill: rgba(255, 215, 0, 0.3);
+            stroke: #FFD700;
+            stroke-width: 2;
+        }
+        
+        .visual-component {
+            fill: rgba(255, 255, 255, 0.2);
+            stroke: #FFFFFF;
+            stroke-width: 2;
+        }
+        
+        .connector {
+            stroke: #FFD700;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #8A2BE2;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container p-6">
+        <h1 class="title-text text-4xl mb-4 text-center">Technical Architecture</h1>
+        
+        <!-- Architecture Diagram -->
+        <div class="architecture-container p-4 mb-6">
+            <div id="architecture-diagram" style="height: 400px;"></div>
+        </div>
+        
+        <!-- Technology Stack -->
+        <div class="grid grid-cols-4 gap-4">
+            <div class="tech-box p-3">
+                <h3 class="title-text text-lg mb-2">
+                    <i class="fas fa-globe highlight-text"></i> Frontend
+                </h3>
+                <ul class="subtitle-text text-sm space-y-1">
+                    <li>HTML5 Canvas</li>
+                    <li>Web Audio API</li>
+                    <li>Vibration API</li>
+                    <li>WebSockets</li>
+                </ul>
+            </div>
+            
+            <div class="tech-box p-3">
+                <h3 class="title-text text-lg mb-2">
+                    <i class="fas fa-database highlight-text"></i> Market Data
+                </h3>
+                <ul class="subtitle-text text-sm space-y-1">
+                    <li>CoinGecko API</li>
+                    <li>Coinbase Advanced</li>
+                    <li>DexScreener</li>
+                    <li>Fear & Greed Index</li>
+                </ul>
+            </div>
+            
+            <div class="tech-box p-3">
+                <h3 class="title-text text-lg mb-2">
+                    <i class="fas fa-atom highlight-text"></i> Quantum
+                </h3>
+                <ul class="subtitle-text text-sm space-y-1">
+                    <li>IBM Quantum</li>
+                    <li>AWS Braket</li>
+                    <li>Qiskit Framework</li>
+                    <li>QFT + VQE Algorithms</li>
+                </ul>
+            </div>
+            
+            <div class="tech-box p-3">
+                <h3 class="title-text text-lg mb-2">
+                    <i class="fas fa-link highlight-text"></i> Blockchain
+                </h3>
+                <ul class="subtitle-text text-sm space-y-1">
+                    <li>XION Dave Mobile Kit</li>
+                    <li>Web3 Integration</li>
+                    <li>Wallet Connect</li>
+                    <li>Harmonic Profiles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Architecture Diagram using D3.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const width = document.getElementById('architecture-diagram').clientWidth;
+            const height = 400;
+            
+            // Create SVG
+            const svg = d3.select('#architecture-diagram')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            // Define components
+            const components = [
+                // Market Data Layer
+                { id: 'market-data', x: width/2 - 300, y: 50, width: 150, height: 60, type: 'api-component', 
+                  label: 'Market Data APIs', icon: 'fa-chart-line' },
+                { id: 'coinbase', x: width/2 - 400, y: 50, width: 80, height: 40, type: 'api-component', 
+                  label: 'Coinbase', icon: 'fa-coins' },
+                { id: 'coingecko', x: width/2 - 200, y: 50, width: 80, height: 40, type: 'api-component', 
+                  label: 'CoinGecko', icon: 'fa-coins' },
+                
+                // Core Processing
+                { id: 'core-engine', x: width/2 - 100, y: 150, width: 200, height: 80, type: 'component', 
+                  label: 'Harmonic Core Engine', icon: 'fa-cogs' },
+                
+                // Quantum Layer
+                { id: 'quantum', x: width/2 - 300, y: 150, width: 150, height: 80, type: 'quantum-component', 
+                  label: 'Quantum Processing', icon: 'fa-atom' },
+                { id: 'ibm', x: width/2 - 350, y: 250, width: 80, height: 40, type: 'quantum-component', 
+                  label: 'IBM', icon: 'fa-microchip' },
+                { id: 'aws', x: width/2 - 250, y: 250, width: 80, height: 40, type: 'quantum-component', 
+                  label: 'AWS', icon: 'fa-cloud' },
+                
+                // Output Layers
+                { id: 'audio-engine', x: width/2 - 100, y: 280, width: 150, height: 60, type: 'audio-component', 
+                  label: 'Audio Engine', icon: 'fa-volume-up' },
+                { id: 'haptic-engine', x: width/2 + 100, y: 280, width: 150, height: 60, type: 'audio-component', 
+                  label: 'Haptic Engine', icon: 'fa-hand-sparkles' },
+                { id: 'cymatics', x: width/2, y: 350, width: 150, height: 60, type: 'visual-component', 
+                  label: 'Cymatics Engine', icon: 'fa-wave-square' },
+                
+                // XION Integration
+                { id: 'xion', x: width/2 + 150, y: 150, width: 150, height: 80, type: 'api-component', 
+                  label: 'XION Integration', icon: 'fa-link' },
+                
+                // User Interface
+                { id: 'ui', x: width/2, y: 450, width: 250, height: 60, type: 'component', 
+                  label: 'Multi-Sensory User Interface', icon: 'fa-desktop' }
+            ];
+            
+            // Define connections
+            const connections = [
+                { source: 'coinbase', target: 'market-data' },
+                { source: 'coingecko', target: 'market-data' },
+                { source: 'market-data', target: 'core-engine' },
+                { source: 'quantum', target: 'core-engine' },
+                { source: 'ibm', target: 'quantum' },
+                { source: 'aws', target: 'quantum' },
+                { source: 'core-engine', target: 'audio-engine' },
+                { source: 'core-engine', target: 'haptic-engine' },
+                { source: 'audio-engine', target: 'cymatics' },
+                { source: 'haptic-engine', target: 'cymatics' },
+                { source: 'core-engine', target: 'xion' },
+                { source: 'cymatics', target: 'ui' },
+                { source: 'xion', target: 'ui' }
+            ];
+            
+            // Draw connections
+            connections.forEach(conn => {
+                const source = components.find(c => c.id === conn.source);
+                const target = components.find(c => c.id === conn.target);
+                
+                // Calculate connection points
+                const sourceX = source.x + source.width / 2;
+                const sourceY = source.y + source.height;
+                const targetX = target.x + target.width / 2;
+                const targetY = target.y;
+                
+                // Draw connection line
+                svg.append('path')
+                    .attr('class', 'connector')
+                    .attr('d', `M${sourceX},${sourceY} C${sourceX},${(sourceY+targetY)/2} ${targetX},${(sourceY+targetY)/2} ${targetX},${targetY}`);
+            });
+            
+            // Draw components
+            components.forEach(comp => {
+                // Component rectangle
+                const group = svg.append('g');
+                
+                group.append('rect')
+                    .attr('class', comp.type)
+                    .attr('x', comp.x)
+                    .attr('y', comp.y)
+                    .attr('width', comp.width)
+                    .attr('height', comp.height)
+                    .attr('rx', 5)
+                    .attr('ry', 5);
+                
+                // Component label
+                group.append('text')
+                    .attr('x', comp.x + comp.width / 2)
+                    .attr('y', comp.y + comp.height / 2 + 5)
+                    .attr('text-anchor', 'middle')
+                    .attr('fill', '#FFFFFF')
+                    .attr('font-size', '12px')
+                    .text(comp.label);
+                
+                // Component icon
+                group.append('text')
+                    .attr('x', comp.x + comp.width / 2)
+                    .attr('y', comp.y + comp.height / 2 - 8)
+                    .attr('text-anchor', 'middle')
+                    .attr('fill', '#FFD700')
+                    .attr('font-size', '14px')
+                    .attr('font-family', 'FontAwesome')
+                    .text(function() {
+                        // FontAwesome icon unicode mapping
+                        const icons = {
+                            'fa-chart-line': '\uf201',
+                            'fa-coins': '\uf51e',
+                            'fa-cogs': '\uf085',
+                            'fa-atom': '\uf5d2',
+                            'fa-microchip': '\uf2db',
+                            'fa-cloud': '\uf0c2',
+                            'fa-volume-up': '\uf028',
+                            'fa-hand-sparkles': '\ue05d',
+                            'fa-wave-square': '\uf83e',
+                            'fa-link': '\uf0c1',
+                            'fa-desktop': '\uf108'
+                        };
+                        return icons[comp.icon] || '\uf111';
+                    });
+            });
+            
+            // Add legend
+            const legend = svg.append('g')
+                .attr('transform', `translate(${width - 180}, 20)`);
+            
+            const legendItems = [
+                { color: '#8A2BE2', label: 'API Integration' },
+                { color: '#00FFFF', label: 'Quantum Computing' },
+                { color: '#FFD700', label: 'Audio Processing' },
+                { color: '#FFFFFF', label: 'Visual Output' }
+            ];
+            
+            legendItems.forEach((item, i) => {
+                legend.append('rect')
+                    .attr('x', 0)
+                    .attr('y', i * 20)
+                    .attr('width', 15)
+                    .attr('height', 15)
+                    .attr('fill', 'rgba(0,0,0,0.5)')
+                    .attr('stroke', item.color)
+                    .attr('stroke-width', 2);
+                
+                legend.append('text')
+                    .attr('x', 20)
+                    .attr('y', i * 20 + 12)
+                    .attr('fill', '#FFFFFF')
+                    .attr('font-size', '10px')
+                    .text(item.label);
+            });
+        });
+    </script>
+</body>
+</html>
+
