@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haptic Feedback: Feel the Market</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .title-text {
+            color: #FFD700;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .subtitle-text {
+            color: #FFFFFF;
+            font-family: 'Segoe UI', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-text {
+            color: #8A2BE2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .highlight-text {
+            color: #00FFFF;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .haptic-device {
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .feature-box {
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid #8A2BE2;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+            }
+            
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(0, 255, 255, 0);
+            }
+            
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+            }
+        }
+        
+        .screen-fade {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(138, 43, 226, 0.2));
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container grid grid-cols-2 gap-6 p-6">
+        <!-- Left Side: Haptic Device Visualization -->
+        <div class="flex flex-col justify-center items-center">
+            <h1 class="title-text text-4xl mb-4 text-center">Haptic Feedback: Feel the Market</h1>
+            
+            <div class="haptic-device bg-black p-4 rounded-lg pulse-animation">
+                <div class="screen-fade p-3 rounded-lg">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/2McsjRRVp7LNYR4G6AsEqr/sandbox/slides_resource_i6vr3d6gz3nmystvmm7s5-cb3c29fb-e2b-prod-aws_1757472109813_na1fn_L2hvbWUvdWJ1bnR1L1hJT04tSEFDS0FUSE9OLVBBQ0tBR0UvYXNzZXRzLzEwMDAwMzI5Nzc.jpg?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMk1jc2pSUlZwN0xOWVI0RzZBc0Vxci9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pNnZyM2Q2Z3ozbm15c3R2bW03czUtY2IzYzI5ZmItZTJiLXByb2QtYXdzXzE3NTc0NzIxMDk4MTNfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwxaEpUMDR0U0VGRFMwRlVTRTlPTFZCQlEwdEJSMFV2WVhOelpYUnpMekV3TURBd016STVOemMuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wy7yCG48NZ7lJIXf4PaRXF34Wmq7BW84v~NfeILz5TrCa0QYd-Uc50T6QIwmEGprPgDmCktLLDI6oYrbOdQg6UJExrOM6JRVkWhIMIPb7MQ4imRlR7QoHhdXEAgh6DoFPXs-unrzS789sBgOCLkMEVcD1UQLGb~GKNaZPpaQz3WWNhJ54-WgILNTCBVdwx4BfZFjJEYR-prA6QAes13mwiDqAeOUTK1YuEQ6u2Ey~bH2IISH--bN805qjN305snttI1lmYg4FRskhEJzuOHN4KZnnQvpR-uzhX2DGecF9OBnrZsKSFSzNZOmH2Ow7UoM6c-VQQ2G063Zh8BLO0Nuxw__" 
+                         alt="Haptic Feedback Visualization" 
+                         class="rounded-lg"
+                         width="300" 
+                         height="450">
+                </div>
+            </div>
+            
+            <p class="subtitle-text text-lg mt-3 text-center">
+                <i class="fas fa-hand-sparkles highlight-text"></i> 
+                Screen Fade Effect Synchronized with Vibrations
+            </p>
+        </div>
+        
+        <!-- Right Side: Haptic Features -->
+        <div class="flex flex-col justify-evenly">
+            <!-- Haptic Patterns -->
+            <div>
+                <h2 class="title-text text-2xl mb-3">
+                    <i class="fas fa-wave-square"></i> Market-Driven Vibration Patterns
+                </h2>
+                <div style="height: 200px;">
+                    <canvas id="vibrationChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Key Features -->
+            <div>
+                <h3 class="title-text text-2xl mb-3">
+                    <i class="fas fa-fingerprint"></i> Haptic Features
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line highlight-text text-xl"></i>
+                        <h4 class="title-text text-lg">Volatility Sensing</h4>
+                        <p class="subtitle-text text-sm">High volatility = intense pulses</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-sync-alt highlight-text text-xl"></i>
+                        <h4 class="title-text text-lg">Frequency Sync</h4>
+                        <p class="subtitle-text text-sm">Vibrations match 432Hz system</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-sliders-h highlight-text text-xl"></i>
+                        <h4 class="title-text text-lg">Intensity Control</h4>
+                        <p class="subtitle-text text-sm">Adjustable feedback strength</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-mobile-alt highlight-text text-xl"></i>
+                        <h4 class="title-text text-lg">Mobile Optimized</h4>
+                        <p class="subtitle-text text-sm">Works on all modern devices</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Innovation Highlight -->
+            <div class="bg-gradient-to-r from-purple-900 to-blue-900 p-3 rounded-lg border border-yellow-500">
+                <h3 class="title-text text-xl mb-2">
+                    <i class="fas fa-lightbulb"></i> Revolutionary Experience
+                </h3>
+                <p class="subtitle-text">
+                    First trading platform that lets you <span class="highlight-text">physically feel</span> market movements through quantum-synchronized haptic feedback
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Vibration Pattern Chart
+        const ctx = document.getElementById('vibrationChart').getContext('2d');
+        
+        // Create gradient for chart
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, 'rgba(0, 255, 255, 0.8)');
+        gradient.addColorStop(1, 'rgba(138, 43, 226, 0.2)');
+        
+        // Market volatility vibration pattern data
+        const vibrationChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['0s', '0.5s', '1s', '1.5s', '2s', '2.5s', '3s', '3.5s', '4s', '4.5s', '5s'],
+                datasets: [{
+                    label: 'High Volatility Pattern',
+                    data: [0, 100, 0, 80, 0, 90, 0, 70, 0, 85, 0],
+                    borderColor: '#FFD700',
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    pointRadius: 0
+                }, {
+                    label: 'Low Volatility Pattern',
+                    data: [0, 40, 0, 30, 0, 35, 0, 25, 0, 30, 0],
+                    borderColor: '#8A2BE2',
+                    backgroundColor: 'rgba(138, 43, 226, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Vibration Intensity',
+                            color: '#FFFFFF'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#FFFFFF'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Time',
+                            color: '#FFFFFF'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Market-Driven Vibration Patterns',
+                        color: '#FFD700',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
