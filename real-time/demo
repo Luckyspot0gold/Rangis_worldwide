@@ -1,0 +1,15 @@
+// Prepare these real-time demos:
+const demos = {
+    crash: { frequency: 419.6, amplitude: 0.9, waveform: 'sawtooth' },
+    rally: { frequency: 469.2, amplitude: 0.7, waveform: 'sine' },
+    stability: { frequency: 432.0, amplitude: 0.5, waveform: 'sine' }
+};
+
+function playMarketCondition(condition) {
+    // Actual Web Audio implementation
+    const audioContext = new AudioContext();
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = demos[condition].waveform;
+    oscillator.frequency.value = demos[condition].frequency;
+    // ... connect and play
+}
