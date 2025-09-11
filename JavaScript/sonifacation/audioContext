@@ -1,0 +1,21 @@
+// Audio context for sonification
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+function createMarketSound(price, volume, trend) {
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    // Map price to frequency (400-800 Hz range)
+    oscillator.frequency.value = 400 + (price % 400);
+    
+    // Map volume to amplitude
+    gainNode.gain.value = Math.min(volume / 1000000, 0.8);
+    
+    // Map trend to waveform type
+    oscillator.type = trend > 0 ? 'sine' : 'sawtooth';
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    return oscillator;
+}
