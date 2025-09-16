@@ -1,0 +1,1 @@
+/bin/bash -c "$(curl -fsSL 'https://quickstart.dev.testnet.burnt.com/install/?user_address=xion1zffrm2netuh3u8hzc664kv32a8huen36zmqa0kvtp3nczcvk9yxsgtu9fd&template=mobile')"
