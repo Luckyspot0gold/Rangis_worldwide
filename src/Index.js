@@ -1,3 +1,39 @@
+// PROPRIETARY TECHNOLOGY OF REALITY PROTOCOL LLC
+// PATENT PENDING: MARKET-DRIVEN WAVELENGTH VISUALIZATION SYSTEM
+// © 2025 Reality Protocol LLC. All Rights Reserved.
+
+import { ResonanceChamber } from './orion-protocol/resonance-chamber/ResonanceChamber.js';
+import { MockMarketDataFeed } from './markets/real-time-feeds/MockMarketDataFeed.js';
+import { adjustFrequencyByMarketChange, calculateWavelength } from './utils/wavelength-calculator.js';
+
+// Initialize the resonance chamber
+const container = document.getElementById('resonance-chamber');
+const resonanceChamber = new ResonanceChamber(container);
+
+// Initialize market data feed
+const marketDataFeed = new MockMarketDataFeed();
+
+// Subscribe to market data updates
+marketDataFeed.subscribe(marketData => {
+    // For demonstration, we'll use BTC change to adjust the base frequency
+    const baseFrequency = 432;
+    const newFrequency = adjustFrequencyByMarketChange(baseFrequency, marketData.btc.change);
+    const wavelength = calculateWavelength(newFrequency);
+
+    console.log(`BTC Change: ${marketData.btc.change.toFixed(2)}%`);
+    console.log(`New Frequency: ${newFrequency.toFixed(2)} Hz`);
+    console.log(`Wavelength: ${wavelength.toFixed(2)} meters`);
+
+    // Update the resonance chamber with the new market data
+    resonanceChamber.updateWithMarketData({
+        frequency: newFrequency,
+        wavelength: wavelength,
+        marketData: marketData
+    });
+});
+
+// Start the market data feed
+marketDataFeed.start();
 import { ResonanceChamber } from './core/resonance-chamber.js';
 import { MarketDataConnector } from './markets/real-time-feeds/market-connector.js';
 import { PhysicsEngine } from './core/physics-engine.js';
