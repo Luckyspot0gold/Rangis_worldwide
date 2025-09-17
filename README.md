@@ -1,3 +1,7 @@
+// PROPRIETARY TECHNOLOGY OF REALITY PROTOCOL LLC
+// PATENT PENDING: MARKET-DRIVEN WAVELENGTH VISUALIZATION SYSTEM
+// © 2025 Reality Protocol LLC. All Rights Reserved.
+
 # Rangis_worldwide 
 ![Rangi's Heartbeat](https://via.placeholder.com/800x400?text=Rangi's+Heartbeat+Demo)
 Mobile Edition of the original 
