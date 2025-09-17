@@ -1,3 +1,35 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.css';
+import Bell from './components/Bell';
+
+const API_BASE = 'http://localhost:5000';
+
+function App() {
+  const [bells, setBells] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${API_BASE}/api/bells`)
+      .then(res => setBells(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>Reality Protocol — Harmonic Interface</h1>
+      <div className="bell-grid">
+        {bells.map(bell => (
+          <Bell key={bell.name} name={bell.name} frequency={bell.frequency} />
+        ))}
+        {/* Additional frequencies */}
+        <Bell name="Return to Sender" frequency={111.11} />
+        <Bell name="Earth Base Harmonic" frequency={432} />
+      </div>
+    </div>
+  );
+}
+
+export default App;
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import CymaticVisualizer from './components/CymaticVisualizer';
