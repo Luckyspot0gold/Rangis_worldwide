@@ -1,16 +1,15 @@
-``markdown
 # Rangi's Heartbeat: The Multi-Sensory Market Sonification Platform
 
-![Rangi's Heartbeat Banner](assets/branding/rangi-heartbeat-banner.jpg) <!-<img src="assets/branding/rangi-heartbeat-banner.jpg" width="400" alt="Rangi's Heartbeat Banner">
-![XION Blaze](assets/branding/xion-blaze-logo.png) <<img src="assets/branding/reality-protocol-logo.jpg" width="200" alt="Reality Protocol Logo"> --> -->
+![Rangi's Heartbeat Banner](assets/branding/rangi-heartbeat-banner.jpg)
+![XION Blaze](assets/branding/xion-blaze-logo.png)
 
 **Experience the market like never before—through sound, vibration, and sight.** Rangi's Heartbeat transforms complex financial data into an intuitive multi-sensory experience, making market analysis accessible to everyone, including the visually and hearing impaired.
 
-[![Watch the Demo](https://img.youtube.com/vi/_ciqFNhPc_s/0.jpg)](https://youtu.be/_ciqFNhPc_s) <!-- Link to your new video when ready -->
+[![Watch the Demo](https://img.youtube.com/vi/_ciqFNhPc_s/0.jpg)](https://youtu.be/_ciqFNhPc_s)
 
 ## 🌟 Featured On
-- **XION Blaze Hackathon**: Proof of Concept Submission XION-Blaze-Logo-White-On-Black-Circle.png
-- **Devpost**: [Rangi's Heartbeat Submission](https://devpost.com/software/rangi-s-heartbeat) <!-- Update with your actual Devpost link -->
+- **XION Blaze Hackathon**: Proof of Concept Submission
+- **Devpost**: [Rangi's Heartbeat Submission](https://devpost.com/software/rangi-s-heartbeat)
 
 ## 🚀 Vision
 
@@ -34,29 +33,8 @@
 | **Backend Processing** | Node.js, Python (for harmonic analysis) |
 | **Visualization** | Custom Cymatics Engine |
 
-## 📦 Installation and Getting Started
 
-To run Rangi's Heartbeat locally:
-
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/Luckyspot0gold/Rangis_worldwide.git
-    cd Rangis_worldwide
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-
-3.  **Start the development server**:
-    ```bash
-    npm run dev
-    ```
-
-4.  **Open your browser** to `http://localhost:3000`.
-
-> **Note for Development**: For detailed setup instructions, including environment variables for API keys and hardware configuration for haptic feedback, please refer to [INSTALL.md](INSTALL.md).
+> **Note for Development**: For detailed setup instructions, including environment variables for API keys and hardware configuration for haptic feedback, please refer to (INSTALL.md).
 
 ## 🎮 Usage
 
@@ -90,16 +68,6 @@ Rangi's Heartbeat is the world's first multi-sensory market sonification platfor
 
 This isn't just another charting tool; it's a new language for the market, designed for inclusivity and intuition.
 
-🛠️ Technology Stack
-
-· Frontend: React, Next.js
-· Audio Engine: Web Audio API, Tone.js
-· Data Integration: Yahoo Finance API, WebSocket streams
-· Haptics: Gamepad Vibration API, mobile SDKs
-· Blockchain: XION for gasless transactions
-· Backend: Node.js, Python for harmonic analysis
-
-📦 Installation
 
 To run Rangi's Heartbeat locally:
 
@@ -132,7 +100,7 @@ For detailed setup instructions, including API keys and hardware configuration, 
 · Real-Time Sonification: Convert price and volume data into harmonic frequencies.
 · Multi-Sensory Output: Audio, haptic, and visual feedback simultaneously.
 · Accessibility Focus: ADA-compliant design for blind and deaf traders.
-· GameFi Integration: Earn rewards and level up through trading skill.
+· GameFi Integration: Earn rewards and level up through trading skills.
 · Patent-Pending Algorithm: Unique harmonic market analysis for deeper insights.
 
 
@@ -219,7 +187,7 @@ Our system implements a groundbreaking recursive security protocol that:
 This approach allows traders to:
 - Verify the authenticity of any market analysis output
 - Confirm data provenance without exposing sensitive algorithms
-- Trust the integrity of multi-sensory market representations [citation:7]
+- Trust the integrity of multi-sensory market representations.
 
   <!DOCTYPE html>
 <html>
