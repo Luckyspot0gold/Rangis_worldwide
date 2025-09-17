@@ -1,0 +1,6 @@
+# 1. Install Bolt CLI
+npm install -g @bolt.build/bolt
+
+# 2. Verify installation
+bolt --version
+# Expected: "Bolt CLI x.x.x"
