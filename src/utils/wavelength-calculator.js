@@ -1,3 +1,53 @@
+// PROPRIETARY TECHNOLOGY OF REALITY PROTOCOL LLC
+// PATENT PENDING: MARKET-DRIVEN WAVELENGTH VISUALIZATION SYSTEM
+// © 2025 Reality Protocol LLC. All Rights Reserved.
+
+// Speed of sound at 20°C in m/s
+const SPEED_OF_SOUND = 343;
+
+/**
+ * Calculate wavelength in meters for a given frequency
+ * @param {number} frequency - Frequency in Hz
+ * @returns {number} Wavelength in meters
+ */
+export function calculateWavelength(frequency) {
+    if (frequency <= 0) {
+        throw new Error('Frequency must be positive');
+    }
+    return SPEED_OF_SOUND / frequency;
+}
+
+/**
+ * Calculate frequency for a given wavelength
+ * @param {number} wavelength - Wavelength in meters
+ * @returns {number} Frequency in Hz
+ */
+export function calculateFrequency(wavelength) {
+    if (wavelength <= 0) {
+        throw new Error('Wavelength must be positive');
+    }
+    return SPEED_OF_SOUND / wavelength;
+}
+
+/**
+ * Generate harmonic series from base frequency
+ * @param {number} baseFrequency - Base frequency in Hz
+ * @param {number} count - Number of harmonics to generate
+ * @returns {Array<number>} Array of harmonic frequencies
+ */
+export function getHarmonicSeries(baseFrequency, count) {
+    return Array.from({length: count}, (_, i) => baseFrequency * (i + 1));
+}
+
+/**
+ * Calculate the frequency change based on market percentage change
+ * @param {number} baseFrequency - Base frequency (e.g., 432 Hz)
+ * @param {number} marketChange - Market change percentage (e.g., 5 for 5%)
+ * @returns {number} New frequency in Hz
+ */
+export function adjustFrequencyByMarketChange(baseFrequency, marketChange) {
+    return baseFrequency * (1 + marketChange / 100);
+}
 // Speed of sound at 20°C in m/s
 const SPEED_OF_SOUND = 343;
 
