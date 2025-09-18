@@ -217,4 +217,8 @@ This approach allows traders to:
 XION-Blaze-Logo-White-On-Black-Circle.png
 
 https://v0.app/chat/rangi-s-heartbeat-ceLAa2gY0PY**** sounds of Rangi 9/8/2025
+Install pre-commit & run checks locally
+pip install pre-commit
+pre-commit install
+pre-commit run --all-files
 
