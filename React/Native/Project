@@ -1,9 +1,0 @@
-# 1. Create a fresh React Native project with Expo
-npx create-expo-app RangiWorldwide
-cd RangiWorldwide
-
-# 2. Install dependencies
-npm install @burnt-labs/abstraxion-react-native expo-haptics expo-av
-
-# 3. Install dotenv for env vars
-npm install react-native-dotenv
