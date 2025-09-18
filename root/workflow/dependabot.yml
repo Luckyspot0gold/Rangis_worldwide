@@ -1,0 +1,7 @@
+.github/dependabot.yml — Dependabot config (see above).
+.github/workflows/codeql-analysis.yml — CodeQL workflow.
+.github/CODEOWNERS — assign owners for sensitive paths, for example:
+# CODEOWNERS
+/docs/ @your-org/docs-team
+/src/ @your-org/dev-team
+/.github/workflows/ @your-org/devops-team
