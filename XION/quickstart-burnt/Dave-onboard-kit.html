@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rangi's Heartbeat - Xion Mobile PoC</title>
+    <script src="https://unpkg.com/@burnt-labs/abstraxion@latest/dist/index.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-dark: #111827;
+            --bg-card: #1f2937;
+            --text-light: #f9fafb;
+            --text-dim: #9ca3af;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 16px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #374151;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: all 0.2s;
+            margin: 8px 0;
+            touch-action: manipulation;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+            background: var(--primary-dark);
+        }
+        
+        .btn-success {
+            background: var(--success);
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .status {
+            padding: 12px;
+            border-radius: 12px;
+            margin: 12px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status.connected {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .status.disconnected {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .status-icon {
+            font-size: 20px;
+        }
+        
+        .balance {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 16px 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .frequency-display {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .frequency-value {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #8b5cf6;
+        }
+        
+        .frequency-label {
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+        
+        .transaction-list {
+            margin-top: 20px;
+        }
+        
+        .transaction-item {
+            padding: 12px;
+            border-bottom: 1px solid #374151;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-details {
+            flex: 1;
+        }
+        
+        .transaction-amount {
+            font-weight: bold;
+        }
+        
+        .transaction-positive {
+            color: var(--success);
+        }
+        
+        .transaction-negative {
+            color: var(--danger);
+        }
+        
+        .haptic-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .vibration-preview {
+            height: 40px;
+            background: #374151;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+        
+        .xion-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .frequency-value {
+                font-size: 32px;
+            }
+        }
+        
+        /* Haptic feedback animation */
+        @keyframes vibrate {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .vibrating {
+            animation: vibrate 0.3s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rangi's Heartbeat</h1>
+            <p class="subtitle">Xion Mobile Proof of Concept</p>
+        </header>
+        
+        <div class="card">
+            <h2 class="card-title">🔗 Xion Wallet Connection</h2>
+            <div id="connection-status" class="status disconnected">
+                <span class="status-icon">❌</span>
+                <span>Not connected to Xion</span>
+            </div>
+            <button id="connect-btn" class="btn">Connect Xion Wallet</button>
+            <button id="disconnect-btn" class="btn btn-outline" style="display: none;">Disconnect</button>
+            
+            <div id="wallet-info" style="display: none;">
+                <div class="balance" id="balance-display">0.00 XION</div>
+                <p class="subtitle" id="address-display">Address: Not connected</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">🎵 Market Frequency Generator</h2>
+            <div class="frequency-display">
+                <div class="frequency-value" id="frequency-value">432 Hz</div>
+                <div class="frequency-label">Current Market Frequency</div>
+            </div>
+            <button id="play-frequency" class="btn">Play Frequency</button>
+            <button id="stop-frequency" class="btn btn-outline">Stop</button>
+            
+            <div class="haptic-controls">
+                <button id="vibrate-single" class="btn btn-outline">Single Pulse</button>
+                <button id="vibrate-pattern" class="btn btn-outline">Market Pattern</button>
+            </div>
+            
+            <div class="vibration-preview" id="vibration-preview">
+                Tap vibration buttons to test patterns
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">💫 Transaction Simulator</h2>
+            <p style="margin-bottom: 16px; color: var(--text-dim);">
+                Send test transactions to experience harmonic signatures
+            </p>
+            <button id="send-tx" class="btn">Send Test Transaction</button>
+            <button id="simulate-market" class="btn btn-outline">Simulate Market Movement</button>
+            
+            <div class="transaction-list">
+                <h3 style="margin: 16px 0 8px 0;">Transaction History</h3>
+                <div id="transaction-history">
+                    <p style="text-align: center; padding: 20px; color: var(--text-dim);">
+                        No transactions yet
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">📊 Live Market Data</h2>
+            <div id="market-data">
+                <p style="text-align: center; padding: 20px; color: var(--text-dim);">
+                    Loading market data...
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="xion-badge">Powered by Xion</div>
+
+    <script>
+        // DOM Elements
+        const connectBtn = document.getElementById('connect-btn');
+        const disconnectBtn = document.getElementById('disconnect-btn');
+        const connectionStatus = document.getElementById('connection-status');
+        const balanceDisplay = document.getElementById('balance-display');
+        const addressDisplay = document.getElementById('address-display');
+        const walletInfo = document.getElementById('wallet-info');
+        const playFrequencyBtn = document.getElementById('play-frequency');
+        const stopFrequencyBtn = document.getElementById('stop-frequency');
+        const frequencyValue = document.getElementById('frequency-value');
+        const vibrateSingleBtn = document.getElementById('vibrate-single');
+        const vibratePatternBtn = document.getElementById('vibrate-pattern');
+        const vibrationPreview = document.getElementById('vibration-preview');
+        const sendTxBtn = document.getElementById('send-tx');
+        const simulateMarketBtn = document.getElementById('simulate-market');
+        const transactionHistory = document.getElementById('transaction-history');
+        const marketData = document.getElementById('market-data');
+        
+        // Audio context for frequency generation
+        let audioContext;
+        let oscillator;
+        
+        // Initialize Xion
+        const initializeXion = async () => {
+            try {
+                // Initialize Abstraxion
+                await window.abstraxion.init({
+                    network: 'xion-testnet-1',
+                    contracts: [],
+                });
+                
+                console.log('Xion initialized successfully');
+            } catch (error) {
+                console.error('Failed to initialize Xion:', error);
+            }
+        };
+        
+        // Connect Wallet
+        const connectWallet = async () => {
+            try {
+                // Show connecting state
+                connectionStatus.innerHTML = '<span class="status-icon">⏳</span> Connecting...';
+                
+                // Connect using Abstraxion
+                await window.abstraxion.connect();
+                
+                // Get user data
+                const user = await window.abstraxion.getUser();
+                
+                // Update UI
+                connectionStatus.className = 'status connected';
+                connectionStatus.innerHTML = '<span class="status-icon">✅</span> Connected to Xion';
+                
+                connectBtn.style.display = 'none';
+                disconnectBtn.style.display = 'block';
+                walletInfo.style.display = 'block';
+                
+                addressDisplay.textContent = `Address: ${user.address.substring(0, 12)}...${user.address.substring(user.address.length - 6)}`;
+                balanceDisplay.textContent = '100.50 XION'; // Mock balance
+                
+                // Start market data updates
+                updateMarketData();
+                
+            } catch (error) {
+                console.error('Failed to connect wallet:', error);
+                connectionStatus.className = 'status disconnected';
+                connectionStatus.innerHTML = '<span class="status-icon">❌</span> Connection failed';
+            }
+        };
+        
+        // Disconnect Wallet
+        const disconnectWallet = async () => {
+            try {
+                await window.abstraxion.disconnect();
+                
+                // Update UI
+                connectionStatus.className = 'status disconnected';
+                connectionStatus.innerHTML = '<span class="status-icon">❌</span> Not connected to Xion';
+                
+                connectBtn.style.display = 'block';
+                disconnectBtn.style.display = 'none';
+                walletInfo.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Failed to disconnect wallet:', error);
+            }
+        };
+        
+        // Play Frequency
+        const playFrequency = () => {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            
+            if (oscillator) {
+                oscillator.stop();
+            }
+            
+            oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            
+            // Calculate frequency based on current market conditions
+            const baseFrequency = 432; // Base harmonic frequency
+            const marketVariation = Math.random() * 20; // Simulate market movement
+            const frequency = baseFrequency + marketVariation;
+            
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            
+            const gainNode = audioContext.createGain();
+            gainNode.gain.value = 0.2; // Reduce volume to avoid ear damage
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.start();
+            
+            // Update UI
+            frequencyValue.textContent = `${frequency.toFixed(1)} Hz`;
+            frequencyValue.style.color = '#8b5cf6';
+        };
+        
+        // Stop Frequency
+        const stopFrequency = () => {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator = null;
+            }
+        };
+        
+        // Vibrate Device
+        const vibrateDevice = (pattern) => {
+            if (navigator.vibrate) {
+                navigator.vibrate(pattern);
+                
+                // Show visual feedback
+                vibrationPreview.textContent = 'Vibrating...';
+                vibrationPreview.classList.add('vibrating');
+                
+                setTimeout(() => {
+                    vibrationPreview.textContent = 'Tap vibration buttons to test patterns';
+                    vibrationPreview.classList.remove('vibrating');
+                }, pattern.reduce((a, b) => a + b, 0) + 100);
+            } else {
+                vibrationPreview.textContent = 'Vibration API not supported on this device';
+            }
+        };
+        
+        // Send Transaction
+        const sendTransaction = async () => {
+            try {
+                // Show loading state
+                sendTxBtn.textContent = 'Processing...';
+                sendTxBtn.disabled = true;
+                
+                // Simulate transaction delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Generate random transaction details
+                const amount = (Math.random() * 10).toFixed(2);
+                const frequency = (432 + Math.random() * 20).toFixed(1);
+                
+                // Add to transaction history
+                const txElement = document.createElement('div');
+                txElement.className = 'transaction-item';
+                txElement.innerHTML = `
+                    <div class="transaction-details">
+                        <div>Test Transaction</div>
+                        <small>${new Date().toLocaleTimeString()}</small>
+                    </div>
+                    <div class="transaction-amount transaction-positive">
+                        +${amount} XION
+                    </div>
+                `;
+                
+                if (transactionHistory.querySelector('p')) {
+                    transactionHistory.innerHTML = '';
+                }
+                
+                transactionHistory.prepend(txElement);
+                
+                // Trigger haptic feedback
+                vibrateDevice([100, 50, 100]);
+                
+                // Update frequency display
+                frequencyValue.textContent = `${frequency} Hz`;
+                frequencyValue.style.color = '#10b981';
+                
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.textContent = 'Transaction successful! Harmonic signature recorded.';
+                successMsg.style.color = '#10b981';
+                successMsg.style.marginTop = '10px';
+                successMsg.style.fontSize = '14px';
+                
+                sendTxBtn.parentNode.insertBefore(successMsg, sendTxBtn.nextSibling);
+                
+                setTimeout(() => {
+                    successMsg.remove();
+                }, 3000);
+                
+            } catch (error) {
+                console.error('Transaction failed:', error);
+                
+                // Show error message
+                const errorMsg = document.createElement('div');
+                errorMsg.textContent = 'Transaction failed. Please try again.';
+                errorMsg.style.color = '#ef4444';
+                errorMsg.style.marginTop = '10px';
+                errorMsg.style.fontSize = '14px';
+                
+                sendTxBtn.parentNode.insertBefore(errorMsg, sendTxBtn.nextSibling);
+                
+                setTimeout(() => {
+                    errorMsg.remove();
+                }, 3000);
+                
+            } finally {
+                sendTxBtn.textContent = 'Send Test Transaction';
+                sendTxBtn.disabled = false;
+            }
+        };
+        
+        // Simulate Market Movement
+        const simulateMarketMovement = () => {
+            // Generate random market data
+            const btcChange = (Math.random() * 2 - 1).toFixed(2);
+            const ethChange = (Math.random() * 2 - 1).toFixed(2);
+            const xionChange = (Math.random() * 3 - 1.5).toFixed(2);
+            
+            // Calculate new frequency based on market changes
+            const baseFrequency = 432;
+            const frequencyVariation = (parseFloat(btcChange) + parseFloat(ethChange) + parseFloat(xionChange)) * 10;
+            const frequency = baseFrequency + frequencyVariation;
+            
+            // Update market data display
+        
