@@ -1,14 +1,14 @@
 # Rangi's Heartbeat: [The Multi-Sensory Market Sonification Platform](https://keep.google.com/u/0/media/v2/1lUHZAqIu7QuYC7jIWSeSGgy5NaWUHfmLeaCYa57uOFaHLDYai_RrTD0waXxT0Hw0cnax/1LvLYFR2WF0RfIruiErTdhzkijA3iqKkURaPp7FsUhytnt37PizgRFdWICcHKpXvGUUw2?accept=image%2Fgif%2Cimage%2Fjpeg%2Cimage%2Fjpg%2Cimage%2Fpng%2Caudio%2Faac&sz=1080)
 
 ![Rangi's Heartbeat Banner](assets/branding/rangi-heartbeat-banner.jpg)
-![XION Blaze](assets/branding/xion-blaze-logo.png)
+![XION POC](assets/branding/xion-blaze-logo.png)
 
 **Experience the market like never before—through sound, vibration, and sight.** Rangi's Heartbeat transforms complex financial data into an intuitive multi-sensory experience, making market analysis accessible to everyone, including the visually and hearing impaired.
 
 [![Watch the Demo](https://img.youtube.com/vi/_ciqFNhPc_s/0.jpg)](https://youtu.be/_ciqFNhPc_s)
 
 ## 🌟 Featured On
-- **XION Blaze Hackathon**: Proof of Concept Submission
+- **XION Proof Of Concept Hackathon**: Proof of Concept Submission
 - **Devpost**: [Rangi's Heartbeat Submission](https://devpost.com/software/rangi-s-heartbeat)
 
 ## 🚀 Vision
