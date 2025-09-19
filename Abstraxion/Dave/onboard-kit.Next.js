@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+const webpack = require("webpack");
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,4 +261,5 @@
     </script>
 </body>
 </html>
-
+npm i @burnt-labs/abstraxtion
+nnpm run dev
