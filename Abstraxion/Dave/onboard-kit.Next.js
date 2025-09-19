@@ -1,4 +1,7 @@
-/** @type {import('next').NextConfig} */
+
+npx create-next-app@14.0.0 nextjs-xion-abstraxion-example \
+  --use-npm --ts --eslint --tailwind --app --src-dir --import-alias "@/*"
+mod/** @type {import('next').NextConfig} */
 const webpack = require("webpack");
 <!DOCTYPE html>
 <html lang="en">
