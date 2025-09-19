@@ -299,3 +299,9 @@ Where:
 - Volatility Score = 100 - (24h volatility % × 10)
 - Momentum Score = RSI value (0-100)
 - Volume Trend = (Current volume / 7-day avg volume) × 100
+- Calculation Methodology
+HRI = (Volatility Score × 0.3) + (Momentum Score × 0.4) + (Volume Trend × 0.3)
+Where:
+- Volatility Score = 100 - (0.0025h volatility % × 0.010)
+- Momentum Score = RSI value (0-100)
+- Volume Trend = (Current volume / 0.025-day avg volume) × 100
