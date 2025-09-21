@@ -98,3 +98,16 @@ git commit -m "📚 Update documentation for enhanced features
 
 Your app template should now be running on [localhost:3000](http://localhost:3000).
 
+## Xion Blockchain Integrations (Sept 2025)
+
+SoundsOfRangi now leverages Xion's latest milestones for seamless, fee-less multi-sensory trading:
+
+- **Apple ID Onboarding**: Native "Sign in with Apple" support at protocol level—users log in via Face ID/Touch ID (no seeds/wallets). Enables one-tap access to harmonic haptics/cymatics on 3B+ devices. [Announced Sept 9, 2025](https://www.globenewswire.com/news-release/2025/09/09/3147117/0/en/XION-launches-Apple-ID-login-for-blockchain-dropping-wallets-and-seed-phrases.html).
+- **Kraken Trading**: XION token live on Kraken for deposits/trading (Sept 12, 2025). Pulls pro feeds into our market integration for enhanced volatility sonics (e.g., BTC "singer" highs via 432Hz shifts). [Kraken Listing](https://blog.kraken.com/product/asset-listings/xion-is-available-for-trading).
+
+**Demo Wallet**: xion1ckuuac9n65qjqzgstpd9xjjask85mm9r7mwwp580t6d7y5rn8pyq9ftt4g (Blaze testnet—fund for fee-less haptic txns).
+
+**Quick Start on Xion**:
+1. Sign in with Apple on Xion explorer.
+2. Clone this repo: `git clone https://github.com/Luckyspot0gold/SoundsofRangi.git`.
+3. Run `python quantum_harmonic_processor.py`—feel the pulses!
