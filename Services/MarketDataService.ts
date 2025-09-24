@@ -31,3 +31,31 @@ export class RealMarketDataService {
     };
   }
 }
+
+
+export class MarketDataService {
+  private async fetchWithFallback(url: string) {
+    try {
+      // Remove client-side API key exposure
+      const response = await fetch(`/api/market-data?url=${encodeURIComponent(url)}`);
+      return await response.json();
+    } catch (error) {
+      console.error('API fetch failed:', error);
+      return this.getMockData(); // Use consistent fallback
+    }
+  }
+}
+
+// Add this API route: pages/api/market-data.ts
+export default async function handler(req, res) {
+  const { url } = req.query;
+  const apiKey = process.env.FMP_API_KEY; // Server-side only
+  
+  try {
+    const response = await fetch(`${url}&apikey=${apiKey}`);
+    const data = await response.json();
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Market data fetch failed' });
+  }
+}
