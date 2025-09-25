@@ -1,4 +1,19 @@
 {
+  "dependencies": {
+    // Ensure these are correct:
+    "@burnt-labs/abstraxion": "^1.4.1",
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
+{
   "name": "soundsofrangi",
   "version": "1.0.0",
   "description": "Reality Protocol - Harmonic Market Analysis Platform",
