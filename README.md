@@ -88,7 +88,7 @@ This project is the first initiative from **Reality Protocol LLC** (30 N Gould S
 
 ## 📞 Contact
 
-*   **Email:** justin@realityprotocol.io
+*   **Email:** StoneYardGames@proton.me
 *   **X (Twitter):** [@Goldandrainbows](https://x.com/Goldandrainbows/)
 *   **Company:** Reality Protocol LLC, Sheridan, WY / Denver, CO
                    PROPRIETARY TECHNOLOGY OF REALITY PROTOCOL LLC
