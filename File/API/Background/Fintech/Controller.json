@@ -1,4 +1,10 @@
-// In your ExtensionDelegate or Background Fetch controller
+```javascript
+// Replace mock data with real BTC momentum
+const realRotor = () => {
+  const btcMomentum = (currentPrice - price5MinAgo) / price5MinAgo;
+  const vix = await getVIXData(); // Real volatility
+  return Math.exp(btcMomentum * 100 * e12 + vix/100 * e13);
+};// In your ExtensionDelegate or Background Fetch controller
 func fetchLatestPulse() {
     let url = URL(string: "https://your-api.execute-api...")!
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
