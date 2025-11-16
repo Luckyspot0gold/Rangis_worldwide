@@ -8,6 +8,3 @@ export class SixDRealityBridge {
     this.audio = new SevenBellSynth();
     this.haptic = new HapticEngine();
   }
-  
-  // Your 6D bridge implementation here...
-}
