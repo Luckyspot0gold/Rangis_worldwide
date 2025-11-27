@@ -264,5 +264,5 @@ const webpack = require("webpack");
     </script>
 </body>
 </html>
-npm i @burnt-labs/abstraxtion
-nnpm run dev
+npm i @burnt-labs/abstraxion
+npm run dev
